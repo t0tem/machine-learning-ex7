@@ -21,11 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
-
-
+for i = 1:size(X,1)
+    dist = (X(i,:) - centroids) .^ 2; % first part of calc of distance from
+                                      % xi to each of centroids
+    dist = sum(dist, 2); % 2nd part of distance calculation
+    [dummy, ci] = min(dist); % getting index of min distance
+    idx(i) = ci;
+end
+  
 
 % =============================================================
 
