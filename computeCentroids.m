@@ -26,11 +26,13 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
-
-
+% from tutorial
+for i = 1:K
+  sel = find(idx == i);
+  if length(sel) % updating only if 'sel' is not empty
+    centroids(i,:) = mean(X(sel,:));
+  end
+end
 
 
 % =============================================================
